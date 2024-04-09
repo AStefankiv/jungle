@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
   helper_method :cart
 
-  def enhanced_cart
+  def enhanced_cart #this method is used to display the cart in the cart view
     @enhanced_cart ||= Product.where(id: cart.keys).map {|product| { product:product, quantity: cart[product.id.to_s] } }
   end
   helper_method :enhanced_cart
