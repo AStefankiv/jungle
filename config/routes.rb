@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'users/new'
+  get 'users/create'
   root to: 'products#index'
 
   resources :products, only: [:index, :show]
@@ -11,6 +13,9 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: [:create, :show]
+
+  resources :users, only: [:new, :create] #sign up
+  resources :sessions, only: [:new, :create, :destroy] #login
 
   # get 'about', to: 'about#index'
   resources :about, only: [:index]
